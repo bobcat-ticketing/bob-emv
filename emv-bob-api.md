@@ -7,7 +7,7 @@ This note describes modifications to adopt BoB APIs to EMV payment cards.
 
 ### Token Identifier
 
-EMV tokens (cards) are identified by a `tokenId` defined as the "SHA-256 of ICC Public Key Certificate (EMV tag 9F46)". No model updates, except for the description, for the existing `tokenId` object required.
+EMV tokens (cards) are identified by a `tokenId` defined as the "SHA-256 of ICC Public Key Certificate ([EMV tag 9F46](https://emvlab.org/emvtags/show/t9F46/))". No model updates, except for the description, for the existing `tokenId` object required.
 
     tokenId:
       description: |
