@@ -58,6 +58,6 @@ An EMV transaction
 All objects with `tokenId` is updated to also include (an optional) new `tokenType`. If a `tokenId` is specified without `tokenType`, MTS7 is assumed.
 
 
-## Validation & Inspection API
+## Ticket, Validation & Inspection API
 
-`tokenId`, `tokenType` and `emvTransaction` is added on the top level `ticketEvent` object.
+Properties `tokenId`, `tokenType` and `emvTransaction` are added on the top level `ticketEvent` object.
