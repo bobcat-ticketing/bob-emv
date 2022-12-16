@@ -44,13 +44,9 @@ An EMV transaction
           description: Payment transaction identifier
           type: string
           example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
-        tokenVariant:
-          description: EMV card variant indicating open or closed loop
-          type: string
-          enum:
-            - open
-            - closed
-          default: open
+        iin:
+          description: Issuer Identification Number (EMV tag 42)
+          type: integer
 
 
 ## Ticket API
