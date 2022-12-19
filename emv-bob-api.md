@@ -47,6 +47,9 @@ An EMV transaction
         iin:
           description: Issuer Identification Number (EMV tag 42)
           type: integer
+        closed:
+          description: Card is closed loop
+          type: boolean
 
 
 ## Ticket API
