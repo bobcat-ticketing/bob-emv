@@ -40,6 +40,8 @@ An EMV transaction
       description: Contactless payment card (EMV) transaction information
       type: object
       properties:
+        tokenId:
+          $ref: '#/definitions/tokenId'
         transactionId:
           description: Payment transaction identifier
           type: string
