@@ -1385,19 +1385,19 @@ definitions:
       aiResponse:
         $ref: '#/definitions/aiResponse'
   emvTransaction:
-   description: Contactless payment card (EMV) transaction information
-   type: object
-   properties:
-     transactionId:
-       description: Payment transaction identifier
-       type: string
-       example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
-     iin:
-       description: Issuer Identification Number (EMV tag 42)
-       type: integer
-     closed:
-       description: Card is closed loop
-       type: boolean
+    description: Contactless payment card (EMV) transaction information
+    type: object
+    properties:
+      transactionId:
+        description: Payment transaction identifier
+        type: string
+        example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
+      iin:
+        description: Issuer Identification Number (EMV tag 42)
+        type: integer
+      closed:
+        description: Card is closed loop
+        type: boolean
   jwkPublic:
     type: object
     description: Public JSON Web Key (RFC 7517)
