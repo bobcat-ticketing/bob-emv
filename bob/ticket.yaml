@@ -758,8 +758,18 @@ definitions:
         format: int64
         example: 16
       tokenId:
+        description: |
+          Token identifier:
+          - MTS7: Token JWK fingerprint (per RFC 7638)
+          - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
         type: string
-        example: "ABC12345"
+        example: "f7350c49-1860-4674-94dd-826a3d5ac4dc"
+      tokenType:
+        description: |
+          Type of token referred to by a tokenId. Currently defined values:
+          - mts7: MTS7 Travel card application
+          - emv: EMV Contactless payment card
+        type: string
       tokenPublicKey:
         $ref: '#/definitions/jwkPublic'
   ticketMetadata:
@@ -1039,8 +1049,18 @@ definitions:
         format: int64
         example: 16
       tokenId:
+        description: |
+          Token identifier:
+          - MTS7: Token JWK fingerprint (per RFC 7638)
+          - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
         type: string
         example: "f7350c49-1860-4674-94dd-826a3d5ac4dc"
+      tokenType:
+        description: |
+          Type of token referred to by a tokenId. Currently defined values:
+          - mts7: MTS7 Travel card application
+          - emv: EMV Contactless payment card
+        type: string
       tokenPublicKey:
         $ref: '#/definitions/jwkPublic'
       recoverTicketId:
@@ -1234,7 +1254,18 @@ definitions:
         format: base64url
         example: "v2F2QmExYXBZAmSDWJ6_Y2FsZ2..."
       tokenId:
-        description: Token to which the ticket is bound
+        description: |
+          Token identifier:
+          - MTS7: Token JWK fingerprint (per RFC 7638)
+          - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
+        type: string
+        example: "f7350c49-1860-4674-94dd-826a3d5ac4dc"
+        x-nullable: true
+      tokenType:
+        description: |
+          Type of token referred to by a tokenId. Currently defined values:
+          - mts7: MTS7 Travel card application
+          - emv: EMV Contactless payment card
         type: string
         x-nullable: true
       tokenIssuer:
@@ -1276,6 +1307,18 @@ definitions:
         format: int64
         x-nullable: true
       tokenId:
+        description: |
+          Token identifier:
+          - MTS7: Token JWK fingerprint (per RFC 7638)
+          - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
+        type: string
+        example: "f7350c49-1860-4674-94dd-826a3d5ac4dc"
+        x-nullable: true
+      tokenType:
+        description: |
+          Type of token referred to by a tokenId. Currently defined values:
+          - mts7: MTS7 Travel card application
+          - emv: EMV Contactless payment card
         type: string
         x-nullable: true
       tokenPublicKey:
