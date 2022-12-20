@@ -1369,7 +1369,7 @@ definitions:
         type: string
         format: base64url
   tokenTransaction:
-   description: MTS7 transaction information
+    description: MTS7 transaction information
     type: object
     required:
       - tpk
