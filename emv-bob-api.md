@@ -61,4 +61,4 @@ All objects with `tokenId` is updated to also include (an optional) new `tokenTy
 
 ## Ticket, Validation & Inspection API
 
-Properties `tokenId`, `tokenType` and `emvTransaction` are added on the top level `ticketEvent` object.
+Properties `emvTransaction` are added on the top level `ticketEvent` object.
