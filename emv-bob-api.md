@@ -49,6 +49,7 @@ An EMV transaction
         iin:
           description: Issuer Identification Number (EMV tag 42)
           type: integer
+          example: 97523124
         closed:
           description: Card is closed loop
           type: boolean
