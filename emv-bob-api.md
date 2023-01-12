@@ -81,12 +81,11 @@ For use in BoB participant metadata, the following object is defined for `partic
           items:
             type: integer
             example: 97523124
-        caPublicKeys:
+        keys:
           title: CA Public Keys
+          type: array
           items:
             type: object
-            required:
-              - kty
             properties:
               rid:
                 type: string
