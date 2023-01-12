@@ -1,0 +1,100 @@
+{
+  "_version": "1.0.0",
+  "serial": 1,
+  "title": "Participant info",
+  "type": "object",
+  "properties": {
+    "logo": {
+      "$ref": "#/definitions/logo"
+    }
+  },
+  "definitions": {
+    "logo": {
+      "title": "Logo",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "src": {
+            "title": "Logo src URI",
+            "type": "string",
+            "format": "uri",
+            "example": "https://samtrafiken.se/wp-content/uploads/2021/02/logo.png"
+          },
+          "type": {
+            "title": "Logo MIME type",
+            "type": "string",
+            "example": "image/png"
+          },
+          "size": {
+            "title": "Logo size",
+            "type": "string",
+            "pattern": "^(\\d)+x(\\d)+$",
+            "example": "338x64"
+          }
+        },
+        "required": [
+          "src",
+          "type"
+        ]
+      }
+    },
+    "emv": {
+      "title": "EMV Participant Information",
+      "type": "object",
+      "required": [
+        "iin"
+      ],
+      "properties": {
+        "iin": {
+          "title": "Issuer Identification Numbers",
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "example": 97523124
+          }
+        },
+        "keys": {
+          "title": "CA Public Keys",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "rid": {
+                "type": "string",
+                "description": "Registered Application Provider Identifier",
+                "pattern": "^[0-9A-Fa-f]{10}$",
+                "example": "A000000838"
+              },
+              "index": {
+                "type": "integer",
+                "description": "Certification Authority Public Key Index",
+                "example": 4
+              },
+              "kty": {
+                "type": "string",
+                "description": "JWA key type",
+                "example": "RSA"
+              },
+              "n": {
+                "type": "string",
+                "description": "RSA modulus parameter (required for kty=RSA)",
+                "example": "vuYlNydToNVIeSS3lcKfqoq1bb4vkrB0a2fwqE0IyJZ..."
+              },
+              "e": {
+                "type": "string",
+                "description": "RSA exponent parameter (required for kty=RSA)",
+                "example": "Aw"
+              },
+              "exp": {
+                "type": "integer",
+                "description": "Key expire timestamp",
+                "example": 2240521200
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -76,7 +76,7 @@ For use in BoB participant metadata, the following object is defined for `partic
         - iin
       properties:
         iin:
-          title: List of Issuer Identification Numbers
+          title: Issuer Identification Numbers
           type: array
           items:
             type: integer
@@ -90,6 +90,7 @@ For use in BoB participant metadata, the following object is defined for `partic
               rid:
                 type: string
                 description: Registered Application Provider Identifier
+                pattern: "^[0-9A-Fa-f]{10}$"
                 example: A000000838
               index:
                 type: integer
