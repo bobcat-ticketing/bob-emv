@@ -63,3 +63,52 @@ All objects with `tokenId` is updated to also include (an optional) new `tokenTy
 ## Ticket, Validation & Inspection API
 
 Properties `emvTransaction` are added on the top level `ticketEvent` object.
+
+
+## Participant Metadata
+
+For use in BoB participant metadata, the following object is defined for `participantInfo`:
+
+    emv:
+      title: EMV Participant Information
+      type: object
+      required:
+        - iin
+      properties:
+        iin:
+          title: List of Issuer Identification Numbers
+          type: array
+          items:
+            type: integer
+            example: 97523124
+        caPublicKeys:
+          title: CA Public Keys
+          items:
+            type: object
+            required:
+              - kty
+            properties:
+              rid:
+                type: string
+                description: Registered Application Provider Identifier
+                example: A000000838
+              index:
+                type: integer
+                description: Certification Authority Public Key Index
+                example: 4
+              kty:
+                type: string
+                description: JWA key type
+                example: "RSA"
+              n:
+                type: string
+                description: RSA modulus parameter (required for kty=RSA)
+                example: "vuYlNydToNVIeSS3lcKfqoq1bb4vkrB0a2fwqE0IyJZ..."
+              e:
+                type: string
+                description: RSA exponent parameter (required for kty=RSA)
+                example: Aw
+              exp:
+                type: integer
+                description: Key expire timestamp
+                example: 2240521200
