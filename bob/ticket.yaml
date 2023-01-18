@@ -1389,23 +1389,31 @@ definitions:
         $ref: '#/definitions/tokenIssuer'
       tokenId:
         $ref: '#/definitions/tokenId'
-  emvTransaction:
-    description: Contactless payment card (EMV) transaction information
-    type: object
-    properties:
-      tokenId:
-        $ref: '#/definitions/tokenId'
-      transactionId:
-        description: Payment transaction identifier
-        type: string
-        example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
-      iin:
-        description: Issuer Identification Number (EMV tag 42)
-        type: integer
-        example: 97523124
-      closed:
-        description: Card is closed loop
-        type: boolean
+    emvTransaction:
+      description: Contactless payment card (EMV) transaction information
+      type: object
+      properties:
+        tokenId:
+          $ref: '#/definitions/tokenId'
+        deviceId:
+          description: Device (terminal) identifier
+          type: string
+          example: "2EF23D68-F810-4BC2-82E6-C17795D48F60"
+        deviceTransactionId:
+          description: Device (terminal) transaction identifier
+          type: string
+          example: "7997D984-7164-4BC3-9B0F-D4F575F6780F"
+        transactionId:
+          description: Payment transaction identifier
+          type: string
+          example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
+        iin:
+          description: Issuer Identification Number (EMV tag 42)
+          type: integer
+          example: 97523124
+        closed:
+          description: Card is closed loop
+          type: boolean
   jwkPublic:
     type: object
     description: Public JSON Web Key (RFC 7517)
