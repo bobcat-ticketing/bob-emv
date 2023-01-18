@@ -44,6 +44,14 @@ An EMV transaction
       properties:
         tokenId:
           $ref: '#/definitions/tokenId'
+        deviceId:
+          description: Device (terminal) identifier
+          type: string
+          example: "2EF23D68-F810-4BC2-82E6-C17795D48F60"
+        deviceTransactionId:
+          description: Device (terminal) transaction identifier
+          type: string
+          example: "7997D984-7164-4BC3-9B0F-D4F575F6780F"
         transactionId:
           description: Payment transaction identifier
           type: string
