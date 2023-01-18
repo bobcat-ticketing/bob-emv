@@ -108,7 +108,7 @@ For use in BoB participant metadata, the following object is defined for `partic
                 example: 4
               kty:
                 type: string
-                description: JWA key type
+                description: JWA key type (always "RSA" for EMV cards)
                 example: "RSA"
               n:
                 type: string
@@ -120,5 +120,5 @@ For use in BoB participant metadata, the following object is defined for `partic
                 example: Aw
               exp:
                 type: integer
-                description: Key expire timestamp
+                description: Key expire timestamp (seconds since epoch)
                 example: 2240521200
