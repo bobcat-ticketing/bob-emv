@@ -27,8 +27,10 @@ In order to distinguish between mts7 and emv tokens, an optional and information
     tokenType:
       description: |
         Type of token referred to by a tokenId. Currently defined values:
-        - mts7: MTS7 Travel card application
-        - emv: EMV Contactless payment card
+          - mts7: MTS7 Travel card application
+          - emv: EMV Contactless payment card
+        Implementors are advised to accept other values for maximum backwards
+        compatibility.
       type: string
 
 
