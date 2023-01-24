@@ -36,11 +36,13 @@ In order to distinguish between mts7 and emv tokens, an optional and information
 
 ### EMV Transaction
 
-An EMV transaction
+An EMV transaction to be included as a property of the top level `ticketEvent` object. The `iin` property can be fetched from [EMV tag 42](https://emvlab.org/emvtags/show/t42/) or extracted from [EMV tag 57](https://emvlab.org/emvtags/show/t57/).
 
     emvTransaction:
       description: Contactless payment card (EMV) transaction information
       type: object
+      required:
+        - tokenId
       properties:
         tokenId:
           $ref: '#/definitions/tokenId'
@@ -52,12 +54,17 @@ An EMV transaction
           description: Device (terminal) transaction identifier
           type: string
           example: "7997D984-7164-4BC3-9B0F-D4F575F6780F"
-        transactionId:
+        paymentTransactionId:
           description: Payment transaction identifier
           type: string
           example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
+        rid:
+          description: Registered Application Provider Identifier
+          type: string
+          pattern: "^[0-9A-Fa-f]{10}$"
+          example: A000000838
         iin:
-          description: Issuer Identification Number (EMV tag 42)
+          description: Issuer Identification Number (EMV tag 42, or extracted from EMV tag 57)
           type: integer
           example: 97523124
         closed:
