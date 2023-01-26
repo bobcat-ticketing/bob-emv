@@ -12,8 +12,8 @@ EMV tokens (cards) are identified by a `tokenId` defined as the "SHA-256 of ICC 
     tokenId:
       description: |
         Token identifier:
-        - MTS7: Token JWK fingerprint (per RFC 7638)
-        - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
+        - mts7: Token JWK fingerprint (per RFC 7638)
+        - emv: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
       type: string
       example: "Rnp2RTk0elFMMjFRTl9uMWhSWmhlbGowNFR5RWRmYWJyZUY1NkZPTUxpUQ"
 
@@ -32,6 +32,9 @@ In order to distinguish between mts7 and emv tokens, an optional and information
         Implementors are advised to accept other values for maximum backwards
         compatibility.
       type: string
+      x-extensible-enum:
+        - mts7
+        - emv
 
 
 ### EMV Transaction
