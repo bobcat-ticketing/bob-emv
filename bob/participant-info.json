@@ -43,7 +43,7 @@
       "title": "EMV Participant Information",
       "type": "object",
       "required": [
-        "iin"
+        "aid"
       ],
       "properties": {
         "aid": {

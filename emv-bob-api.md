@@ -39,16 +39,22 @@ In order to distinguish between mts7 and emv tokens, an optional and information
 
 ### EMV Transaction
 
-An EMV transaction to be included as a property of the top level `ticketEvent` object. The `iin` property can be fetched from [EMV tag 42](https://emvlab.org/emvtags/show/t42/) or extracted from [EMV tag 57](https://emvlab.org/emvtags/show/t57/).
+An EMV transaction to be included as a property of the top level `ticketEvent` object. The `aid` property can be fetched from [EMV tag 9F06](https://emvlab.org/emvtags/show/t9F06/).
 
     emvTransaction:
       description: Contactless payment card (EMV) transaction information
       type: object
       required:
         - tokenId
+        - aid
       properties:
         tokenId:
           $ref: '#/definitions/tokenId'
+        aid:
+          description: Application Identifier
+          type: string
+          pattern: "^[0-9A-Fa-f]{10,32}$"
+          example: A000000838
         deviceId:
           description: Device (terminal) identifier
           type: string
@@ -61,11 +67,6 @@ An EMV transaction to be included as a property of the top level `ticketEvent` o
           description: Payment transaction identifier
           type: string
           example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
-        aid:
-          description: Application Identifier
-          type: string
-          pattern: "^[0-9A-Fa-f]{10,32}$"
-          example: A000000838
         closed:
           description: Card is closed loop
           type: boolean
@@ -89,7 +90,7 @@ For use in BoB participant metadata, the following object is defined for `partic
       title: EMV Participant Information
       type: object
       required:
-        - iin
+        - aid
       properties:
         aid:
           description: Application Identifier
