@@ -46,13 +46,11 @@
         "iin"
       ],
       "properties": {
-        "iin": {
-          "title": "Issuer Identification Numbers",
-          "type": "array",
-          "items": {
-            "type": "integer",
-            "example": 97523124
-          }
+        "aid": {
+          "title": "Application Identifier",
+          "type": "string",
+          "pattern": "^[0-9A-Fa-f]{10,32}$",
+          "example": "A000000838"
         },
         "keys": {
           "title": "CA Public Keys",
@@ -60,12 +58,6 @@
           "items": {
             "type": "object",
             "properties": {
-              "rid": {
-                "type": "string",
-                "description": "Registered Application Provider Identifier",
-                "pattern": "^[0-9A-Fa-f]{10}$",
-                "example": "A000000838"
-              },
               "index": {
                 "type": "integer",
                 "description": "Certification Authority Public Key Index",
