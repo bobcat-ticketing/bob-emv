@@ -458,7 +458,7 @@ definitions:
           description: Application Identifier
           type: string
           pattern: "^[0-9A-Fa-f]{10,32}$"
-          example: A000000838
+          example: A0000008381010
         closed:
           description: Card is closed loop
           type: boolean

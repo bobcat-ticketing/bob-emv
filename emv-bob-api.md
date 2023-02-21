@@ -54,7 +54,7 @@ An EMV transaction to be included as a property of the top level `ticketEvent` o
           description: Application Identifier
           type: string
           pattern: "^[0-9A-Fa-f]{10,32}$"
-          example: A000000838
+          example: A0000008381010
         deviceId:
           description: Device (terminal) identifier
           type: string
@@ -96,7 +96,7 @@ For use in BoB participant metadata, the following object is defined for `partic
           description: Application Identifier
           type: string
           pattern: "^[0-9A-Fa-f]{10,32}$"
-          example: A000000838
+          example: A0000008381010
         keys:
           title: CA Public Keys
           type: array
