@@ -49,6 +49,7 @@
         "aid": {
           "title": "Application Identifier",
           "type": "array",
+          "uniqueItems": true,
           "items": {
             "type": "string",
             "pattern": "^[0-9A-Fa-f]{10,32}$",

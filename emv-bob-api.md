@@ -95,6 +95,7 @@ For use in BoB participant metadata, the following object is defined for `partic
         aid:
           description: Application Identifier
           type: array
+          uniqueItems: true
           items:
             type: string
             pattern: "^[0-9A-Fa-f]{10,32}$"
