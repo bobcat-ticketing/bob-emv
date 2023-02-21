@@ -99,6 +99,11 @@ For use in BoB participant metadata, the following object is defined for `partic
             type: string
             pattern: "^[0-9A-Fa-f]{10,32}$"
             example: A0000008381010
+        rid:
+          description: Registered Application Provider Identifier
+          type: string
+          pattern: "^[0-9A-Fa-f]{10}$"
+          example: A000000838
         keys:
           title: CA Public Keys
           type: array
