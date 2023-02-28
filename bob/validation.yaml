@@ -784,15 +784,11 @@ definitions:
           description: Payment transaction identifier
           type: string
           example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
-        rid:
-          description: Registered Application Provider Identifier
+        aid:
+          description: Application Identifier
           type: string
-          pattern: "^[0-9A-Fa-f]{10}$"
-          example: A000000838
-        iin:
-          description: Issuer Identification Number (EMV tag 42)
-          type: integer
-          example: 97523124
+          pattern: "^[0-9A-Fa-f]{10,32}$"
+          example: A0000008381010
         closed:
           description: Card is closed loop
           type: boolean
@@ -878,3 +874,15 @@ definitions:
     description: Authentication response as received from PICC
     type: string
     format: base64url
+  tokenIssuer:
+    description: PID of token issuer
+    type: integer
+    format: int64
+    example: 16
+  tokenId:
+    description: |
+      Token identifier:
+      - MTS7: Token JWK fingerprint (per RFC 7638)
+      - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
+    type: string
+    example: "Rnp2RTk0elFMMjFRTl9uMWhSWmhlbGowNFR5RWRmYWJyZUY1NkZPTUxpUQ"

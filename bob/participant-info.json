@@ -43,16 +43,24 @@
       "title": "EMV Participant Information",
       "type": "object",
       "required": [
-        "iin"
+        "aid"
       ],
       "properties": {
-        "iin": {
-          "title": "Issuer Identification Numbers",
+        "aid": {
+          "title": "Application Identifier",
           "type": "array",
+          "uniqueItems": true,
           "items": {
-            "type": "integer",
-            "example": 97523124
+            "type": "string",
+            "pattern": "^[0-9A-Fa-f]{10,32}$",
+            "example": "A0000008381010"
           }
+        },
+        "rid": {
+          "title": "Registered Application Provider Identifier",
+          "type": "string",
+          "pattern": "^[0-9A-Fa-f]{10}$",
+          "example": "A000000838"
         },
         "keys": {
           "title": "CA Public Keys",
@@ -60,12 +68,6 @@
           "items": {
             "type": "object",
             "properties": {
-              "rid": {
-                "type": "string",
-                "description": "Registered Application Provider Identifier",
-                "pattern": "^[0-9A-Fa-f]{10}$",
-                "example": "A000000838"
-              },
               "index": {
                 "type": "integer",
                 "description": "Certification Authority Public Key Index",

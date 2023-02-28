@@ -39,16 +39,22 @@ In order to distinguish between mts7 and emv tokens, an optional and information
 
 ### EMV Transaction
 
-An EMV transaction to be included as a property of the top level `ticketEvent` object. The `iin` property can be fetched from [EMV tag 42](https://emvlab.org/emvtags/show/t42/) or extracted from [EMV tag 57](https://emvlab.org/emvtags/show/t57/).
+An EMV transaction to be included as a property of the top level `ticketEvent` object. The `aid` property can be fetched from [EMV tag 9F06](https://emvlab.org/emvtags/show/t9F06/).
 
     emvTransaction:
       description: Contactless payment card (EMV) transaction information
       type: object
       required:
         - tokenId
+        - aid
       properties:
         tokenId:
           $ref: '#/definitions/tokenId'
+        aid:
+          description: Application Identifier
+          type: string
+          pattern: "^[0-9A-Fa-f]{10,32}$"
+          example: A0000008381010
         deviceId:
           description: Device (terminal) identifier
           type: string
@@ -61,15 +67,6 @@ An EMV transaction to be included as a property of the top level `ticketEvent` o
           description: Payment transaction identifier
           type: string
           example: "4B3249E2-EFFD-4C42-B604-D632C58E46FC"
-        rid:
-          description: Registered Application Provider Identifier
-          type: string
-          pattern: "^[0-9A-Fa-f]{10}$"
-          example: A000000838
-        iin:
-          description: Issuer Identification Number (EMV tag 42, or extracted from EMV tag 57)
-          type: integer
-          example: 97523124
         closed:
           description: Card is closed loop
           type: boolean
@@ -93,25 +90,27 @@ For use in BoB participant metadata, the following object is defined for `partic
       title: EMV Participant Information
       type: object
       required:
-        - iin
+        - aid
       properties:
-        iin:
-          title: Issuer Identification Numbers
+        aid:
+          description: Application Identifier
           type: array
+          uniqueItems: true
           items:
-            type: integer
-            example: 97523124
+            type: string
+            pattern: "^[0-9A-Fa-f]{10,32}$"
+            example: A0000008381010
+        rid:
+          description: Registered Application Provider Identifier
+          type: string
+          pattern: "^[0-9A-Fa-f]{10}$"
+          example: A000000838
         keys:
           title: CA Public Keys
           type: array
           items:
             type: object
             properties:
-              rid:
-                type: string
-                description: Registered Application Provider Identifier
-                pattern: "^[0-9A-Fa-f]{10}$"
-                example: A000000838
               index:
                 type: integer
                 description: Certification Authority Public Key Index
