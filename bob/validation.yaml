@@ -874,3 +874,15 @@ definitions:
     description: Authentication response as received from PICC
     type: string
     format: base64url
+  tokenIssuer:
+    description: PID of token issuer
+    type: integer
+    format: int64
+    example: 16
+  tokenId:
+    description: |
+      Token identifier:
+      - MTS7: Token JWK fingerprint (per RFC 7638)
+      - EMV: base64url-encoded SHA-256 of the ICC Public Key Certificate (EMV tag 9F46)
+    type: string
+    example: "Rnp2RTk0elFMMjFRTl9uMWhSWmhlbGowNFR5RWRmYWJyZUY1NkZPTUxpUQ"
